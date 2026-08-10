@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CODM LOTEX</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    color:white;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.78),
+        rgba(2,6,23,.94)
+    ),
+    url("https://images.wallpapersden.com/image/download/call-of-duty-mobile-key-art_bWVraWqUmZqaraWkpJRnZWltrWdlaW0.jpg")
+    center/cover fixed no-repeat;
+}
+
+.page{
+    width:100%;
+    min-height:100vh;
+    padding:20px 12px 40px;
+}
+
+.container{
+    width:100%;
+    max-width:720px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+/* ================================
+   روبیکا بالا
+================================ */
+
+.rubika-top{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:12px;
+
+    color:#ffffff;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.rubika-top img{
+    width:25px;
+    height:25px;
+    border-radius:7px;
+    object-fit:cover;
+}
+
+/* ================================
+   عنوان
+================================ */
+
+.logo{
+    font-size:42px;
+}
+
+.title{
+    margin:5px 0;
+    font-size:30px;
+    font-weight:900;
+    color:#22d3ee;
+    text-shadow:0 0 20px rgba(34,211,238,.35);
+}
+
+.subtitle{
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.card{
+    width:100%;
+    padding:18px;
+
+    background:rgba(15,23,42,.96);
+
+    border:1px solid #1e3a4a;
+    border-radius:22px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.section{
+    margin-bottom:17px;
+    padding:15px;
+
+    background:rgba(2,6,23,.7);
+
+    border:1px solid #1e293b;
+    border-radius:16px;
+}
+
+.section-title{
+    color:#22d3ee;
+    font-size:15px;
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+}
+
+.field{
+    min-width:0;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    color:#cbd5e1;
+    font-size:11px;
+}
+
+input,
+select{
+
+    width:100%;
+    height:44px;
+
+    padding:0 11px;
+
+    background:#020617;
+    color:white;
+
+    border:1px solid #334155;
+    border-radius:10px;
+
+    outline:none;
+
+    font-family:Tahoma,Arial,sans-serif;
+    font-size:13px;
+}
+
+input:focus,
+select:focus{
+    border-color:#22d3ee;
+}
+
+input.invalid{
+    border-color:#ef4444;
+}
+
+.hint{
+    margin-top:5px;
+    color:#64748b;
+    font-size:9px;
+}
+
+.error{
+    display:none;
+
+    margin-top:5px;
+
+    color:#f87171;
+    font-size:10px;
+}
+
+.calculate{
+
+    width:100%;
+    height:54px;
+
+    border:0;
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #06b6d4,
+        #2563eb
+    );
+
+    color:white;
+
+    font-family:Tahoma,Arial,sans-serif;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.calculate:active{
+    transform:scale(.98);
+}
+
+.result{
+
+    display:none;
+
+    margin-top:20px;
+    padding:22px 15px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(6,78,59,.35),
+        rgba(2,6,23,.95)
+    );
+
+    border:1px solid #166534;
+    border-radius:17px;
+}
+
+.result-title{
+    color:#94a3b8;
+    font-size:13px;
+}
+
+.price{
+
+    margin-top:9px;
+
+    color:#4ade80;
+
+    font-size:25px;
+    font-weight:900;
+}
+
+.result-note{
+
+    margin-top:7px;
+
+    color:#64748b;
+
+    font-size:10px;
+}
+
+.details{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+    gap:7px;
+
+    margin-top:17px;
+    padding-top:15px;
+
+    border-top:1px solid #1e293b;
+}
+
+.detail{
+
+    padding:8px;
+
+    background:#0f172a;
+
+    border-radius:8px;
+
+    color:#cbd5e1;
+
+    font-size:10px;
+}
+
+/* ================================
+   روبیکا پایین
+================================ */
+
+.rubika-bottom{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+
+    margin-top:15px;
+
+    color:#ffffff;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.rubika-bottom img{
+    width:24px;
+    height:24px;
+    border-radius:7px;
+    object-fit:cover;
+}
+
+.footer{
+
+    text-align:center;
+
+    margin-top:10px;
+
+    color:#64748b;
+
+    font-size:10px;
+}
+
+@media(max-width:500px){
+
+    .page{
+        padding:14px 8px 30px;
+    }
+
+    .card{
+        padding:12px;
+    }
+
+    .section{
+        padding:12px;
+    }
+
+    .title{
+        font-size:26px;
+    }
+
+}
+
+@media(max-width:350px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .details{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="container">
+
+
+<!-- =====================================
+     RUBIKA TOP
+===================================== -->
+
+<div class="rubika-top">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rubika%20Icon.png"
+alt="Rubika">
+
+<span>
+Shop_Radical@
+</span>
+
+</div>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<div class="header">
+
+<div class="logo">
+🎮
+</div>
+
+<div class="title">
+CODM LOTEX
+</div>
+
+<div class="subtitle">
+سیستم تخمین قیمت اکانت Call of Duty Mobile
+</div>
+
+</div>
+
+
+<div class="card">
+
+
+<!-- =====================================
+     اطلاعات اصلی
+===================================== -->
+
+<div class="section">
+
+<div class="section-title">
+🔐 اطلاعات اکانت
+</div>
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>
+وضعیت اکانت
+</label>
+
+<select id="accountType">
+
+<option value="change">
+🔄 چنج
+</option>
+
+<option value="safe">
+🔐 سیف
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+تعداد سیو
+</label>
+
+<select id="saveCount">
+
+<option value="1">
+1 سیو
+</option>
+
+<option value="2" selected>
+2 سیو
+</option>
+
+<option value="3">
+3 سیو
+</option>
+
+<option value="4">
+4 سیو
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+لول اکانت
+</label>
+
+<input
+type="number"
+id="level"
+min="0"
+max="400"
+step="1"
+placeholder="حداکثر 400"
+oninput="limitInput(this,400)">
+
+<div
+class="error"
+id="levelError">
+
+حداکثر لول اکانت 400 است.
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+تعداد Battle Pass
+</label>
+
+<input
+type="number"
+id="battlePass"
+min="0"
+max="60"
+step="1"
+placeholder="حداکثر 60"
+oninput="limitInput(this,60)">
+
+<div
+class="error"
+id="battlePassError">
+
+حداکثر Battle Pass برابر 60 است.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================
+     EPIC
+===================================== -->
+
+<div class="section">
+
+<div class="section-title">
+💠 آیتم‌های Epic
+</div>
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>
+گان Epic
+</label>
+
+<input
+type="number"
+id="epicGuns"
+min="0"
+max="900"
+step="1"
+placeholder="حداکثر 900"
+oninput="limitInput(this,900)">
+
+<div
+class="error"
+id="epicGunsError">
+
+حداکثر گان Epic برابر 900 است.
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+اسکین Epic
+</label>
+
+<input
+type="number"
+id="epicSkins"
+min="0"
+max="500"
+step="1"
+placeholder="حداکثر 500"
+oninput="limitInput(this,500)">
+
+<div
+class="error"
+id="epicSkinsError">
+
+حداکثر اسکین Epic برابر 500 است.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================
+     LEGENDARY
+===================================== -->
+
+<div class="section">
+
+<div class="section-title">
+👑 آیتم‌های Legendary
+</div>
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>
+گان Legendary پولی
+</label>
+
+<input
+type="number"
+id="legendaryPaid"
+min="0"
+max="200"
+step="1"
+placeholder="حداکثر 200"
+oninput="limitInput(this,200)">
+
+<div
+class="error"
+id="legendaryPaidError">
+
+حداکثر گان Legendary پولی 200 است.
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+گان Legendary رایگان
+</label>
+
+<input
+type="number"
+id="legendaryFree"
+min="0"
+max="20"
+step="1"
+placeholder="حداکثر 20"
+oninput="limitInput(this,20)">
+
+<div
+class="error"
+id="legendaryFreeError">
+
+حداکثر گان Legendary رایگان 20 است.
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+اسکین Legendary
+</label>
+
+<input
+type="number"
+id="legendarySkins"
+min="0"
+max="30"
+step="1"
+placeholder="حداکثر 30"
+oninput="limitInput(this,30)">
+
+<div
+class="error"
+id="legendarySkinsError">
+
+حداکثر اسکین Legendary برابر 30 است.
+
+</div>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+سطح گان‌های Legendary پولی
+</label>
+
+<select id="legendQuality">
+
+<option value="0.80">
+معمولی
+</option>
+
+<option value="1" selected>
+خوب
+</option>
+
+<option value="1.20">
+🔥 خفن
+</option>
+
+<option value="1.50">
+💎 بسیار خفن
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================
+     MYTHIC
+===================================== -->
+
+<div class="section">
+
+<div class="section-title">
+⚡ آیتم‌های Mythic
+</div>
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>
+گان Mythic پولی
+</label>
+
+<input
+type="number"
+id="mythicPaid"
+min="0"
+max="40"
+step="1"
+placeholder="حداکثر 40"
+oninput="limitInput(this,40)">
+
+<div
+class="error"
+id="mythicPaidError">
+
+حداکثر گان Mythic پولی 40 است.
+
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+گان Mythic رایگان
+</label>
+
+<input
+type="number"
+id="mythicFree"
+min="0"
+max="3"
+step="1"
+placeholder="حداکثر 3"
+oninput="limitInput(this,3)">
+
+<div
+class="error"
+id="mythicFreeError">
+
+حداکثر گان Mythic رایگان 3 است.
+
+</div>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+اسکین Mythic پولی
+</label>
+
+<input
+type="number"
+id="mythicSkinsPaid"
+min="0"
+max="15"
+step="1"
+placeholder="حداکثر 15"
+oninput="limitInput(this,15)">
+
+<div
+class="error"
+id="mythicSkinsPaidError">
+
+حداکثر اسکین Mythic پولی 15 است.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================
+     BUTTON
+===================================== -->
+
+<button
+type="button"
+class="calculate"
+id="calculateButton">
+
+💰 محاسبه قیمت اکانت
+
+</button>
+
+
+<!-- =====================================
+     RESULT
+===================================== -->
+
+<div
+class="result"
+id="result">
+
+<div class="result-title">
+بازه قیمت تقریبی اکانت
+</div>
+
+
+<div
+class="price"
+id="price">
+</div>
+
+
+<div class="result-note">
+
+قیمت تخمینی است و ارزش واقعی آیتم‌ها،
+خاص بودن گان‌ها و شرایط بازار می‌تواند
+روی قیمت نهایی تأثیر بگذارد.
+
+</div>
+
+
+<div
+class="details"
+id="details">
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================
+     RUBIKA BOTTOM
+===================================== -->
+
+<div class="rubika-bottom">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rubika%20Icon.png"
+alt="Rubika">
+
+<span>
+Shop_Radical@
+</span>
+
+</div>
+
+
+<div class="footer">
+
+CODM LOTEX © 2026
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* =====================================
+   سقف‌های مجاز
+===================================== */
+
+const LIMITS = {
+
+    level: 400,
+
+    battlePass: 60,
+
+    epicGuns: 900,
+
+    epicSkins: 500,
+
+    legendaryPaid: 200,
+
+    legendaryFree: 20,
+
+    legendarySkins: 30,
+
+    mythicPaid: 40,
+
+    mythicFree: 3,
+
+    mythicSkinsPaid: 15
+
+};
+
+
+/* =====================================
+   جلوگیری از وارد کردن بیشتر از سقف
+===================================== */
+
+function limitInput(input, max){
+
+    let value =
+        input.value;
+
+    if(value === ""){
+        return;
+    }
+
+    value =
+        Number(value);
+
+
+    if(
+        !Number.isInteger(value) ||
+        value < 0
+    ){
+
+        input.value = "";
+
+        return;
+
+    }
+
+
+    if(value > max){
+
+        input.classList.add("invalid");
+
+        const error =
+            document.getElementById(
+                input.id + "Error"
+            );
+
+        if(error){
+            error.style.display =
+                "block";
+        }
+
+    }
+
+    else{
+
+        input.classList.remove(
+            "invalid"
+        );
+
+        const error =
+            document.getElementById(
+                input.id + "Error"
+            );
+
+        if(error){
+            error.style.display =
+                "none";
+        }
+
+    }
+
+}
+
+
+/* =====================================
+   بررسی امنیتی مقادیر
+===================================== */
+
+function validateAllInputs(){
+
+    let valid = true;
+
+
+    for(
+        const id in LIMITS
+    ){
+
+        const input =
+            document.getElementById(id);
+
+        if(!input){
+            continue;
+        }
+
+
+        const raw =
+            input.value.trim();
+
+
+        if(raw === ""){
+            continue;
+        }
+
+
+        const value =
+            Number(raw);
+
+
+        if(
+            !Number.isInteger(value) ||
+            value < 0 ||
+            value > LIMITS[id]
+        ){
+
+            input.classList.add(
+                "invalid"
+            );
+
+
+            const error =
+                document.getElementById(
+                    id + "Error"
+                );
+
+
+            if(error){
+
+                error.style.display =
+                    "block";
+
+            }
+
+
+            input.focus();
+
+            valid = false;
+
+        }
+
+    }
+
+
+    return valid;
+
+}
+
+
+/* =====================================
+   گرفتن مقدار
+===================================== */
+
+function getValue(id){
+
+    const input =
+        document.getElementById(id);
+
+
+    if(!input){
+
+        return 0;
+
+    }
+
+
+    const value =
+        Number(input.value);
+
+
+    if(
+        !Number.isInteger(value) ||
+        value < 0 ||
+        value > LIMITS[id]
+    ){
+
+        return null;
+
+    }
+
+
+    return value;
+
+}
+
+
+/* =====================================
+   فرمت تومان
+===================================== */
+
+function money(value){
+
+    return Math.round(value)
+        .toLocaleString("fa-IR");
+
+}
+
+
+/* =====================================
+   محاسبه قیمت
+===================================== */
+
+function calculatePrice(){
+
+
+    if(!validateAllInputs()){
+
+        document.getElementById(
+            "result"
+        ).style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    const type =
+        document.getElementById(
+            "accountType"
+        ).value;
+
+
+    const saves =
+        Number(
+            document.getElementById(
+                "saveCount"
+            ).value
+        );
+
+
+    const level =
+        getValue("level");
+
+
+    const battlePass =
+        getValue("battlePass");
+
+
+    const epicGuns =
+        getValue("epicGuns");
+
+
+    const epicSkins =
+        getValue("epicSkins");
+
+
+    const legendaryPaid =
+        getValue("legendaryPaid");
+
+
+    const legendaryFree =
+        getValue("legendaryFree");
+
+
+    const legendarySkins =
+        getValue("legendarySkins");
+
+
+    const legendaryQuality =
+        Number(
+            document.getElementById(
+                "legendQuality"
+            ).value
+        );
+
+
+    const mythicPaid =
+        getValue("mythicPaid");
+
+
+    const mythicFree =
+        getValue("mythicFree");
+
+
+    const mythicSkinsPaid =
+        getValue("mythicSkinsPaid");
+
+
+    if(
+        level === null ||
+        battlePass === null ||
+        epicGuns === null ||
+        epicSkins === null ||
+        legendaryPaid === null ||
+        legendaryFree === null ||
+        legendarySkins === null ||
+        mythicPaid === null ||
+        mythicFree === null ||
+        mythicSkinsPaid === null
+    ){
+
+        alert(
+            "❌ یکی از مقادیر بیشتر از حد مجاز است."
+        );
+
+        return;
+
+    }
+
+
+    let price = 25000;
+
+
+    price +=
+        level * 500;
+
+
+    price +=
+        battlePass *
+        32000;
+
+
+    price +=
+        epicGuns *
+        2300;
+
+
+    price +=
+        epicSkins *
+        1100;
+
+
+    const legendaryBasePrice =
+        400000;
+
+
+    price +=
+        legendaryPaid *
+        legendaryBasePrice *
+        legendaryQuality;
+
+
+    price +=
+        legendaryFree *
+        12000;
+
+
+    if(legendarySkins > 0){
+
+        let skinValue =
+            250000;
+
+
+        const hasOtherItems =
+
+            legendaryPaid > 0 ||
+            mythicPaid > 0 ||
+            battlePass > 0 ||
+            epicGuns > 0 ||
+            epicSkins > 0;
+
+
+        if(hasOtherItems){
+
+            skinValue =
+                400000;
+
+        }
+
+
+        price +=
+            legendarySkins *
+            skinValue;
+
+    }
+
+
+    const mythicGunPrice =
+        2500000;
+
+
+    price +=
+        mythicPaid *
+        mythicGunPrice;
+
+
+    price +=
+        mythicFree *
+        50000;
+
+
+    const mythicSkinPrice =
+        1200000;
+
+
+    price +=
+        mythicSkinsPaid *
+        mythicSkinPrice;
+
+
+    let saveMultiplier = 1;
+
+
+    if(saves === 1){
+
+        saveMultiplier =
+            1.25;
+
+    }
+
+    else if(saves === 2){
+
+        saveMultiplier =
+            1;
+
+    }
+
+    else if(saves === 3){
+
+        saveMultiplier =
+            0.72;
+
+    }
+
+    else if(saves === 4){
+
+        saveMultiplier =
+            0.55;
+
+    }
+
+
+    price *=
+        saveMultiplier;
+
+
+    if(type === "change"){
+
+        price *=
+            0.92;
+
+    }
+
+    else{
+
+        price *=
+            0.45;
+
+    }
+
+
+    if(price < 50000){
+
+        price =
+            50000;
+
+    }
+
+
+    price =
+        Math.round(
+            price / 10000
+        ) * 10000;
+
+
+    let percent;
+
+
+    if(price < 300000){
+
+        percent =
+            0.10;
+
+    }
+
+    else if(price < 700000){
+
+        percent =
+            0.08;
+
+    }
+
+    else if(price < 1500000){
+
+        percent =
+            0.07;
+
+    }
+
+    else if(price < 5000000){
+
+        percent =
+            0.06;
+
+    }
+
+    else{
+
+        percent =
+            0.05;
+
+    }
+
+
+    let minPrice =
+        price *
+        (1 - percent);
+
+
+    let maxPrice =
+        price *
+        (1 + percent);
+
+
+    minPrice =
+        Math.round(
+            minPrice / 10000
+        ) * 10000;
+
+
+    maxPrice =
+        Math.round(
+            maxPrice / 10000
+        ) * 10000;
+
+
+    if(minPrice < 50000){
+
+        minPrice =
+            50000;
+
+    }
+
+
+    document.getElementById(
+        "price"
+    ).innerText =
+
+        money(minPrice) +
+        " تا " +
+        money(maxPrice) +
+        " تومان";
+
+
+    const typeText =
+        type === "safe"
+        ? "🔐 سیف"
+        : "🔄 چنج";
+
+
+    document.getElementById(
+        "details"
+    ).innerHTML =
+
+        '<div class="detail">' +
+        'وضعیت: ' +
+        typeText +
+        '</div>' +
+
+        '<div class="detail">' +
+        'سیو: ' +
+        saves +
+        '</div>' +
+
+        '<div class="detail">' +
+        'لول: ' +
+        level +
+        '</div>' +
+
+        '<div class="detail">' +
+        'Battle Pass: ' +
+        battlePass +
+        '</div>' +
+
+        '<div class="detail">' +
+        'گان Epic: ' +
+        epicGuns +
+        '</div>' +
+
+        '<div class="detail">' +
+        'اسکین Epic: ' +
+        epicSkins +
+        '</div>' +
+
+        '<div class="detail">' +
+        'گان لجند پولی: ' +
+        legendaryPaid +
+        '</div>' +
+
+        '<div class="detail">' +
+        'گان لجند رایگان: ' +
+        legendaryFree +
+        '</div>' +
+
+        '<div class="detail">' +
+        'اسکین لجند: ' +
+        legendarySkins +
+        '</div>' +
+
+        '<div class="detail">' +
+        'گان میتیک پولی: ' +
+        mythicPaid +
+        '</div>' +
+
+        '<div class="detail">' +
+        'گان میتیک رایگان: ' +
+        mythicFree +
+        '</div>' +
+
+        '<div class="detail">' +
+        'اسکین میتیک پولی: ' +
+        mythicSkinsPaid +
+        '</div>';
+
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "block";
+
+}
+
+
+/* =====================================
+   اتصال دکمه
+===================================== */
+
+document.getElementById(
+    "calculateButton"
+).addEventListener(
+    "click",
+    calculatePrice
+);
+
+</script>
+
+</body>
+
+  </html>
