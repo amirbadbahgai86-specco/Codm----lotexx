@@ -218,6 +218,70 @@ input.invalid{
     transform:scale(.98);
 }
 
+
+/* ================================
+   دکمه خرید اکانت
+================================ */
+
+.buy-account{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    height:50px;
+
+    margin-top:10px;
+
+    border:1px solid #334155;
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #15803d
+    );
+
+    color:white;
+
+    font-family:Tahoma,Arial,sans-serif;
+
+    font-size:15px;
+    font-weight:bold;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        opacity .15s ease;
+}
+
+.buy-account:hover{
+
+    box-shadow:
+        0 8px 25px
+        rgba(34,197,94,.25);
+
+    opacity:.95;
+}
+
+.buy-account:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* ================================
+   نتیجه
+================================ */
+
 .result{
 
     display:none;
@@ -836,6 +900,21 @@ id="calculateButton">
 
 
 <!-- =====================================
+     دکمه خرید اکانت
+===================================== -->
+
+<a
+href="https://rubika.ir/Shop_Radical"
+class="buy-account"
+target="_blank"
+rel="noopener noreferrer">
+
+🛒 می‌خوام اکانت بخرم
+
+</a>
+
+
+<!-- =====================================
      RESULT
 ===================================== -->
 
@@ -1322,7 +1401,7 @@ function calculatePrice(){
     if(saves === 1){
 
         saveMultiplier =
-            1.10;
+            1.25;
 
     }
 
@@ -1517,11 +1596,6 @@ function calculatePrice(){
 
         '<div class="detail">' +
         'گان میتیک پولی: ' +
-        mythicPaid +
-        '</div>' +
-
-        '<div class="detail">' +
-        'گان میتیک رایگان: ' +
         mythicFree +
         '</div>' +
 
@@ -1554,4 +1628,4 @@ document.getElementById(
 
 </body>
 
-  </html>
+</html>
